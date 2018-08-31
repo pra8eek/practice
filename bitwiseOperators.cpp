@@ -1,6 +1,6 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
-void bin(int n)
+void bin(int n) //to convert decimal to binary
 {
   if( n==0 || n==1 )
     cout<<n;
@@ -10,12 +10,13 @@ void bin(int n)
     cout<<n%2;
   }
 }
-
 int main()
 {
-  int a=5, b=9;
-  bin(5);
-  cout<<"\n";
-  bin(b);
+  int x=13;
+  cout<<x<<" in binary is : ";
+  bin(x);
+  cout<<endl;
+  cout<<x<<" multiplied by 4 is "<<(x<<2)<<endl;
+  cout<<x<<" divided by 2 is "<<(x>>1)<<endl;
   return 0;
 }

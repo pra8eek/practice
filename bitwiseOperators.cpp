@@ -3,6 +3,7 @@
 // Finding even/odd
 // Finding 1's and 2's compliment
 // Finding if the number is a power of 2
+//swapping 2 numbers
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -34,5 +35,13 @@ int main()
   cout<<"2's complement of "<<x<<" is "<<(~x + 1)<<endl;
 
   (!(x & (x - 1))) ? cout<<x<<" is a power of 2\n" : cout<<x<<" is NOT a power of 2\n";
+
+  int a=5, b=10;
+  cout<<"Before swap : a = "<<a<<" , b = "<<b<<endl;
+  a = a ^ b ;
+  b = a ^ b ;
+  a = a ^ b ;
+  cout<<"After swap : a = "<<a<<" , b = "<<b<<endl;
+
   return 0;
 }

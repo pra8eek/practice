@@ -49,5 +49,14 @@ int main()
   increment(&c,sizeof(c));
   cout<<"AFTER : int is "<<a<<" and char is "<<c<<endl;
 
+  //pointers to pointers
+  int n = 3 ;
+  int* q;
+  int** r;
+  q = &n;
+  r = &q;
+  cout<<"n = "<<n<<endl;
+  cout<<"*q = "<<*q<<", &q = "<<&q<<endl;
+  cout<<"**r = "<<**r<<", &r = "<<&r<<endl;
   return 0;
 }

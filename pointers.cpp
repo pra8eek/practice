@@ -33,13 +33,13 @@ int main()
 
   //for 2D array : arr[i][j] = *(*(arr + i) + j)
 
-/**int num[2][3] = {{1,2,3},{7,8,9}};
-  int** ptr;
-  ptr  = num ;
-  for(int i=0;i<2;i++)
-    for(int j=0;j<3;j++)
-      cout<<*(*(ptr +i)+j)<<" ";
-  cout<<endl;*/
+  int num[2][3] = {{1,2,3},{7,8,9}};
+  int* ptr;
+  ptr  = &num[0][0] ;
+  cout<<"Traversing a 2-D array through pointer : ";
+  for(int i=0;i<6;i++)
+      cout<<*(ptr +i)<<" ";
+  cout<<endl;
 
   //illustration of void pointer
   int a = 10;

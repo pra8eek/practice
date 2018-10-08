@@ -30,6 +30,7 @@ class LinkedList
             {
                 top.val = n;
                 top.next = &temp;
+                int x;
             }
             else
             {

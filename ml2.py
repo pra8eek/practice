@@ -1,5 +1,4 @@
 import numpy as np
-import graphviz
 from sklearn.datasets import load_iris
 from sklearn import tree
 iris = load_iris()

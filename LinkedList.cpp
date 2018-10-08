@@ -25,24 +25,18 @@ class LinkedList
     public :
         void insert( int n )
         {
-            // std :: cout<<"Insert function invoked";
-            // if(top.next == NULL)
-            // {
-            //     // std::cout<<"If me to aa gaya";
-            //     top.val = n;
-            //     top.next = &temp;
-            // }
-            // else
-            // {
-            //     // std::cout<<"else me aa gaya";
-            //     temp.val = n;
-            //     // temp.next = &temp;
-            //     temp.next=NULL;
-
-            // }  
-
-            Node n=top;
-            // cout<<n.next;       
+            std :: cout<<n<<" inserted"<<endl;
+            if(top.next == NULL)
+            {
+                top.val = n;
+                top.next = &temp;
+            }
+            else
+            {
+                Node temp(n);
+                temp.next = top.next;
+                top.next = & temp;
+            }
         }
         void show()
         {
@@ -53,7 +47,7 @@ class LinkedList
                 Node n = top;
                 while( n.next != NULL )
                 {
-                    std :: cout<<n.val<<" ";
+                    std :: cout<<n.val;
                     n = *n.next;
                 }
             }
@@ -69,6 +63,6 @@ int main()
     l.insert(10);
     l.insert(15);
     // std::cout<<"Insert bhi ho gaya badka ji"<<endl;
-    // l.show();
+    l.show();
     return 0;
 }

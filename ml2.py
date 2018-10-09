@@ -5,7 +5,7 @@ iris = load_iris()
 
 # print iris.feature_names
 # print iris.target_names
-# print iris.data[3] , iris.target[3]
+# print iris.data[0] , iris.target[0]
 
 remove = [0,50,100]
 train_target = np.delete( iris.target , remove )

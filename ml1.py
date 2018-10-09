@@ -1,3 +1,5 @@
+#6 lines of code
+
 from sklearn import tree
 feature_names = ['weight' ,'texture' ]
 # texture : 0-Bumpy ; 1-Smooth

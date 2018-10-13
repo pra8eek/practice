@@ -6,6 +6,7 @@ class Node :
 class LinkedList :
     def __init__( self ) :
         self.top = Node()
+        self.count = 0
     
     def isEmpty( self ) :
         return True if (self.top).next == None else False
@@ -14,6 +15,7 @@ class LinkedList :
         temp = Node( num )
         temp.next = (self.top).next
         (self.top).next = temp
+        self.count = self.count + 1
         print("%d inserted at the top " %num)
     
     def insert_at_back( self , num ) :
@@ -21,6 +23,7 @@ class LinkedList :
         while ( temp.next != None ) :
             temp = temp.next
         temp.next = Node( num )
+        self.count = self.count + 1
         print("%d inserted at the bottom " %num)
     
     def insert_at_index( self , num , index ) :
@@ -28,9 +31,10 @@ class LinkedList :
         for i in range( index ) :
             if temp.next == None :
                 print("404 Index Not Found")
-                break
+                return
             temp = temp.next
         temp.next = Node( num , temp.next )
+        self.count = self.count + 1
         print("%d inserted at index %d " %(num , index))
     
     def delete( self , num ) :
@@ -43,6 +47,7 @@ class LinkedList :
             if ( (temp.next).val == num) :
                 temp.next = (temp.next).next
                 print("%d deleted from the list "%num)
+                self.count = self.count - 1
                 dlt = True
                 break
             temp = temp.next
@@ -63,8 +68,15 @@ class LinkedList :
                 break
             temp = temp.next
         if dlt == True :
+            self.count = self.count - 1
             print("Index %d with value %d deleted from the list "%( index , (temp.next).val ))
             temp.next = (temp.next).next
+    
+    def delete_front( self ) :
+        self.delete_at_index(0)
+    
+    def delete_back( self ) :
+        self.delete_at_index( self.count - 1 )
 
     def display( self ) :
         if self.isEmpty() :
@@ -83,6 +95,9 @@ print("2. Insert at bottom")
 print("3. Insert at i'th index")
 print("4. Delete a number")
 print("5. Delete at i'th index")
+print("6. Delete at top")
+print("7. Delete at bottom")
+print("8. Count number of elements")
 print("9. Display the contents")
 print("0. Exit")
 print("Enter your choice")
@@ -96,14 +111,37 @@ while (True) :
         ll.insert_at_back(int(input()))    
     elif ( c== 3) :
         print("Enter the number and the index where you want add : ",end=' ')
-        num , index = map( int , input().split() )
-        ll.insert_at_index( num , index )
+        try :
+            num , index = map( int , input().split() )
+            ll.insert_at_index( num , index )
+        except ValueError :
+            print("You were supposed to enter 2 space separated arguments. Number and Index")
+            print("Try again : ", end=" ")
+            try :
+                num , index = map( int , input().split() )
+                ll.insert_at_index( num , index )
+            except ValueError :
+                print("You crazy or what!! Can't you understand what 2 numbers mean!!!")
+                print("Here's your last try : " , end=' ')
+                try :
+                    num , index = map( int , input().split() )
+                    ll.insert_at_index( num , index )
+                except :
+                    print("You know what, FUCK OFF!")
+                    print("Aborting program. Take care you psychopath")
+                    break
     elif ( c== 4) :
         print("Enter the number to be deleted : ",end=' ')
         ll.delete(int(input()))  
     elif ( c== 5) :
         print("Enter the index to be deleted : ",end=' ')
         ll.delete_at_index(int(input()))
+    elif ( c == 6 ) :
+        ll.delete_front()
+    elif ( c == 7 ) :
+        ll.delete_back()
+    elif ( c == 8 ) :
+        print("Number of elements int he list are %d" %ll.count)
     elif ( c== 9) :
         ll.display()
     elif ( c== 0) :

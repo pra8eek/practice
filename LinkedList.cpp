@@ -53,6 +53,31 @@ class LinkedList
                 }
             }
         }
+        Node* deleteNode(Node *head, int i) {
+        if(i == 0)
+        {
+            Node* temp = head;
+            head = head->next;
+            delete temp;
+            return head;
+        }
+        int k = 0;
+        Node* temp = head;
+        while(k < i-1 && temp->next != NULL)
+        {
+            k++;
+            temp = temp->next;
+        }
+        if(temp == NULL)
+        {
+            return head;
+        }
+        Node* to_be_deleted = temp->next;
+        temp->next = to_be_deleted->next;
+        delete to_be_deleted;
+        return head;
+
+    }
 };
 
 int main()
